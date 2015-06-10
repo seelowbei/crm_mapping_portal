@@ -1,0 +1,42 @@
+.row
+  .col-md-6.col-sm-6.col-lg-6
+    .row
+      .col-md-12
+        .well
+          %h3.text-center Search Customer Mapping Code
+          %hr
+          = form_tag mappings_path, :method => 'get', class: 'form-horizontal' do
+            .form-group
+              .col-lg-9
+                = text_field_tag :search, nil,placeholder: "Input customer code.", class: "form-control input-lg", style: "text-transform:uppercase"
+              .col-lg-3
+                = submit_tag "Search", class:"btn btn-primary btn-lg"
+            .form-group
+          - if !@mapping_list
+            %p &nbsp
+            %p &nbsp
+            %p &nbsp
+            %p &nbsp
+    - if @mapping_list
+      = render "results"
+
+  .col-md-6.col-sm-6.col-lg-6
+    .well
+      %h3.text-center Add Customer Mapping Code
+      %hr
+      = form_for @mapping, html: { class: "form-horizontal" } do |f|
+        .row
+          .form-group
+          = f.label :parent_id,"Parent Code", class: "control-label col-lg-3 col-md-2  input-lg"
+          .col-lg-9.col-md-6
+            = f.text_field :parent_id, pattern: ".{4,}", required: "", title: "Minimum 4 characters required",  class: "form-control"
+        .row
+          .form-group
+          = f.label :sub_id,"Child Code", class: "control-label col-lg-3 col-md-2  input-lg"
+          .col-lg-9.col-md-6
+            = f.text_field :sub_id, pattern: ".{4,}", required: "", title: "Minimum 4 characters required", class: "form-control"
+        .row
+          .form-group
+          .col-lg-offset-10.col-md-2
+            = f.submit "Add", class: "btn btn-success btn-lg"
+        %p &nbsp

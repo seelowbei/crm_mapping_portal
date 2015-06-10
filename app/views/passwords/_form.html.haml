@@ -1,0 +1,21 @@
+= form_tag "/passwords", class: "form-horizontal", method: :put do
+  - if flash[:error]
+    .alert.alert-danger= flash[:error]
+
+  .well
+    .row
+      .col-lg-12
+        .form-group
+          = label_tag :password, "New Password", class: "control-label col-lg-2"
+          .col-lg-4
+            = password_field_tag :password, nil, class: "form-control"
+    .row
+      .col-lg-12
+        .form-group
+          = label_tag :password_confirmation,"New Password Confirmation", class: "control-label col-lg-2"
+          .col-lg-4
+            = password_field_tag :password_confirmation, nil, class: "form-control"
+    .row
+      .col-lg-offset-2
+        = submit_tag "Change Password", class: "btn btn-success btn-md", id: "change_password"
+        = link_to "Cancel", root_path, class: "btn btn-danger btn-md"

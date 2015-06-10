@@ -1,0 +1,17 @@
+.row
+  .col-md-12
+    .result-well{style: "height: 140%;"}
+      %p
+        %strong.text-success #{pluralize(@mapping_list.count, 'mapping record')} found.
+      %table.table-bordered.table-hover.table-condensed.table-responsive#mapping_table
+        %thead
+          %tr
+            %th
+              Parent Code
+            %th
+              Child Code
+        %tbody
+          - @mapping_list.each do |mapping|
+            %tr
+              %td=mapping.parent_id
+              %td=mapping.sub_id

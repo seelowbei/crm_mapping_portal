@@ -1,0 +1,17 @@
+
+.row
+  .col-md-12
+    .well
+      %h4 Please Log In
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .row
+          .form-group
+            = f.label :username,"Username", class: "control-label col-lg-2 input-lg"
+            .col-lg-10
+              = f.text_field :username, class: "form-control", autofocus: true
+        .row
+          .form-group
+            = f.label :password,"Password", class: "control-label col-lg-2 input-lg"
+            .col-lg-10
+              = f.password_field :password, class: "form-control", autocomplete: "off"
+        %div= f.submit "Log in", class: "btn btn-success btn-lg btn-block"

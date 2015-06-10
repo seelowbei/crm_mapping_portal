@@ -1,0 +1,8 @@
+development:
+  adapter: sqlserver
+  username: 
+  password:
+  host:
+  database:
+  port: 1433
+  mode: dblib

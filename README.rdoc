@@ -1,0 +1,11 @@
+CRM Mapping Codes Portal
+
+1. How to setup?
+  - Create config.yml and database.yml
+  - Create secret_token.rb at config/initializers folder
+  - Create user
+  - Bundle install
+  - rake assets:precompile
+
+2. How to start server in production?
+  - RAILS_ENV=production rails s
