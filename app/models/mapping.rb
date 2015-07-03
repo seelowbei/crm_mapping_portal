@@ -34,7 +34,7 @@ class Mapping < ActiveRecord::Base
   def self.search(parent_code, child_code)
     p_code = parent_code.strip
     c_code = child_code.strip
-    Mapping.where("ParentID like ? or SubID like ?", p_code, c_code)
+    Mapping.where("ParentID like ? AND SubID like ?", p_code, c_code)
   end
 
   def self.record_not_exists?(parent_code, child_code)
